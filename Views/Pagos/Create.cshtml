@@ -1,0 +1,55 @@
+@model Inmobiliaria.Models.Contrato
+
+@{
+    ViewData["Title"] = "Registrar Pago";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Registrar Pago del Contrato N° @Model.Id</h1>
+    <div class=" mt-4 ">
+      <form class="form form-floating d-flex text-light justify-content-center col-12  flex-wrap flex-column gap-4" method="post" data-bs-theme="dark" onsubmit="return confirmarPago(event)">
+       
+        <div class=" d-flex flex-column gap-3  justify-content-center" id="formInputs">
+              <div id="fechaPago" class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                 <input id="fechaPago"  class="form-control" type="date" name="FechaPago" required>
+                 <label for="FechaPago" class="ms-2">Fecha de Pago</label>
+             </div>
+
+             <div id="importe"class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center ">
+              <input id="importe" value=@Model.MontoMensual  class="form-control" type="number" name="Importe" placeholder="sad" required">
+              <label for="Importe" class="ms-2">Importe</label>
+             </div>
+
+             <input id="idContrato" value=@Model.Id class="form-control" type="hidden" name="IdContrato" placeholder="sad" required>
+                
+            
+        </div>
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+         
+             <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;" onclick="window.location.href = '/Pagos/Index/@Model.Id'"><i class="fa-solid fa-circle-left"></i></button>
+             <button id="btnRegistrar" type="submit" class="btn btn-success mx-auto" style="width: fit-content;" ><i class="fa-solid fa-file-invoice-dollar"></i></button>
+        </div>                 
+      </form>
+    </div>
+</div>
+
+<script src="~/js/modalCrear.js" asp-append-version="true"></script>
+<script src="~/js/modalBuscarInmueble.js" asp-append-version="true"></script>
+<script src="~/js/modalBuscarInquilino.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+      {
+          var alertMessage = TempData["AlertMessage"];
+          var alertType = TempData["AlertType"];
+          <text>
+              Swal.fire({
+                  icon: '@alertType',
+                  title: '@alertMessage',
+                  showConfirmButton: false,
+                  timer: 2000 
+              });
+          </text>
+      }
+    </script>

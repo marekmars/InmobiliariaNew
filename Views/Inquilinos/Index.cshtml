@@ -1,0 +1,83 @@
+﻿@model List<Inmobiliaria.Models.Inquilino>
+
+@{
+    ViewData["Title"] = "Inquilinos";
+}
+
+<div class="text-center">
+    <h1 class="mb-5">Inquilinos</h1>
+     <div class="d-flex justify-content-between align-items-center gap-3 pb-3">
+            <div class="me-auto">
+                <h5 class="position-relative">Detalle de los Inquilinos</h5>
+            </div>
+            <div class="">
+               <a href="/Inquilinos/Create" class="btn btn-success w-fit h-fit"> <i class="fa-solid fa-circle-plus"></i></a>
+            </div>
+        </div>
+<div class="table-responsive">
+   
+   <table class="table table-striped table-dark table-hover table-auto">
+        
+        <thead>
+            <tr>                
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var inquilino in Model)
+            { 
+
+                    <tr>
+                        <td>@inquilino.Apellido</td>
+                        <td>@inquilino.Nombre</td>
+                        <td>@inquilino.Dni</td>
+                        <td>@inquilino.Telefono</td>
+                        <td>@inquilino.Correo</td>
+                        <td class="d-flex gap-2 justify-content-center align-items-center" >
+                             @if(User.IsInRole("Administrador"))
+                                   {
+                                    <form asp-action="Delete" asp-route-id="@inquilino.Id" onsubmit="return confirmarEliminacion(event)">
+                                        <button type="submit" class="btn btn-outline-danger w-75 h-75 d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-trash"></i>  
+                                        </button>
+                                    </form>
+                                   }                     
+                         <div >
+                           <a asp-controller="Inquilinos" asp-action="Update" asp-route-id="@inquilino.Id"  class="btn btn-outline-primary w-75  d-flex justify-content-center align-items-center"> <i class="fa-solid fa-pen-to-square" style="cursor:pointer;"></i> </a>
+                         </div>
+                         <div >
+                           <a asp-controller="Inquilinos" asp-action="Details" asp-route-id="@inquilino.Id"  class="btn btn-outline-info w-75  d-flex justify-content-center align-items-center"> <i class="fa-solid fa-eye style="cursor:pointer;""></i> </a>
+                         </div>
+                        </td>
+                        
+                    </tr>
+            }
+        </tbody>
+    </table>  
+</div>
+   
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+      {
+          var alertMessage = TempData["AlertMessage"];
+          var alertType = TempData["AlertType"];
+          <text>
+              Swal.fire({
+                  icon: '@alertType',
+                  title: '@alertMessage',
+                  showConfirmButton: false,
+                  timer: 2000 // Mostrar durante 2 segundos
+              });
+          </text>
+      }
+    </script>
+

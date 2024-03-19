@@ -1,0 +1,13 @@
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\Inmobiliaria.exe
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\appsettings.Development.json
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\appsettings.json
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\Inmobiliaria.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\Inmobiliaria.deps.json
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\Inmobiliaria.runtimeconfig.json
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\Inmobiliaria.pdb
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\System.Data.SqlClient.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\runtimes\win-arm64\native\sni.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\runtimes\win-x64\native\sni.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\runtimes\win-x86\native\sni.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

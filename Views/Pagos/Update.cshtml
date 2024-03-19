@@ -1,0 +1,104 @@
+﻿@model Inmobiliaria.Models.Pago
+    
+@{
+    ViewData["Title"] = "Modificar Pago";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Modificar Pago</h1>
+    <div class=" mt-4 ">
+         <form class="form form-floating d-flex flex-wrap flex-column gap-4" method="post" data-bs-theme="dark" onsubmit="return confirmarModificacion(event)"> 
+        <div id="datosContrato" class="" >    
+           <div class="d-flex gap-3 form-floating justify-content align-items-center mx-auto col-md-8 text-center">
+                <input id="busquedaId" value="Contrato N°: @Model.Contrato.Id" disabled class="form-control" type="text" placeholder="sadas" required>
+                <button id="btnBuscarContrato" type="button" class="btn btn-primary fa-solid fa-folder-tree btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusquedaContrato"></button>
+                <label class="ms-2">Ingrese un Contrato</label>
+            </div>
+
+            <div class="modal fade" id="modalBusquedaContrato" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contratos</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <input type="text" id="inputContrato" class="form-control mb-3" placeholder="Buscar por direccion, Inquilino o Monto Mensual">
+                            <div id="ajaxContentContrato">
+                              
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cardContrato" class="card col-md-8 mx-auto mt-3">
+              <div class="card-header">
+                  Detalles del Contrato
+              </div>
+              <div class="card-body">
+                  <h4>Inmueble</h4>
+                  <p class="card-text fw-bold">Direccion: <span class="fw-normal" id="inmuebleDireccion">@Model.Contrato.Inmueble.Direccion</span></p>
+                  <p class="card-text fw-bold">Uso: <span class="fw-normal" id="inmuebleUso">@Model.Contrato.Inmueble.Uso</span></p>
+                  <p class="card-text fw-bold">Tipo: <span class="fw-normal" id="inmuebleTipo">@Model.Contrato.Inmueble.Tipo</span></p>
+                  <h4>Inquilino</h4>
+                  <p class="card-text fw-bold">Nombre: <span class="fw-normal" id="InquilinoNombre">@Model.Contrato.Inquilino.Nombre</span></p>
+                  <p class="card-text fw-bold">Apellido: <span class="fw-normal" id="InquilinoApellido">@Model.Contrato.Inquilino.Apellido</span></p>
+                  <p class="card-text fw-bold">Dni: <span class="fw-normal" id="InquilinoDni">@Model.Contrato.Inquilino.Dni</span></p>
+                
+       
+              </div>
+            </div>
+            <input id="idContrato" value="@Model.Contrato.Id" class="form-control" type="hidden" name="IdContrato" required>
+        </div>
+            
+            
+            <div class="  d-flex flex-column gap-3" id="formInputs">
+                 <div id="fechaPago" class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                          <input id="fechaPagoInput" value= @Model.FechaPago.ToString("yyyy-MM-dd") class="form-control" type="date" name="FechaPago" min="@Model.Contrato.FechaInicio.ToString("yyyy-MM-dd")"required>
+                          <label for="FechaPago" class="ms-2">Fecha de Pago</label>
+                      </div>
+         
+                      <div id="importe"class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center ">
+                       <input id="importeInput" value=@Model.Importe  class="form-control" type="number" name="Importe" placeholder="sad" required">
+                       <label for="Importe" class="ms-2">Importe $</label>
+                      </div>
+         
+                      <input id="idContrato" value=@Model.Contrato.Id class="form-control" type="hidden" name="IdContrato" placeholder="sad" required>
+                         
+                     
+                 </div>
+                 
+
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center ">
+                      <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;" onclick="window.location.href = '/Pagos/Index/@Model.Contrato.Id'"><i class="fa-solid fa-circle-left"></i></button>
+                      <button id="btnRegistrar" type="submit" class="btn btn-success mx-auto" style="width: fit-content;" ><i class="fa-solid fa-file-invoice-dollar"></i></button>
+         </div>  
+            
+      </form>
+  
+    </div>
+
+</div>
+
+<script src="~/js/modalBuscarContrato.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+      {
+          var alertMessage = TempData["AlertMessage"];
+          var alertType = TempData["AlertType"];
+          <text>
+              Swal.fire({
+                  icon: '@alertType',
+                  title: '@alertMessage',
+                  showConfirmButton: false,
+                  timer: 2000 // Mostrar durante 2 segundos
+              });
+          </text>
+      }
+    </script>
+

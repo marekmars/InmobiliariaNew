@@ -1,0 +1,202 @@
+﻿@model Inmobiliaria.Models.Pago
+    
+@{
+    ViewData["Title"] = "Detalles Pago";
+}
+
+<div class="text-center">
+  <div class="text-center">
+    <h1 class="display-4 mb-5">Detalles del Pago</h1>
+    <div class="container mt-4">
+      <div class="card mx-auto col-md-8">
+        <div class="card-body">
+          <h3 class="mt-3">Datos del Pago</h3>
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input value=@Model.NroPago class="form-control input-top"
+            type="text" name="fechaInicio" placeholder="asd" disabled>
+            <label for="fechaInicio" class="ms-2">N° de Pago</label>
+          </div>
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text- *center">
+            <input value=@Model.FechaPago.ToString("dd-MM-yyyy") class="form-control input-mid"
+            type="text" name="fechaFin" placeholder="asd" disabled>
+            <label for="fechaFin" class="ms-2">Fecha de Pago</label>
+          </div>
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text- *center">
+            <input value="$@Model.Importe" class="form-control input-mid"
+            type="text" name="montoMensual" placeholder="asd" disabled>
+            <label for="montoMensual" class="ms-2">Importe</label>
+          </div>
+
+          <h3 class="mt-3">Datos del Contrato</h3>
+           <h4>Inquilino</h4>
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input
+              value="@Model.Contrato.Inquilino.Nombre"
+              class="form-control input-top"
+              type="text"
+              name="Apellido"
+              placeholder="asd"
+              disabled />
+            <label for="apellido" class="ms-2">Nombre</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inquilino.Dni"
+              class="form-control input-mid"
+              type="text"
+              name="Dni"
+              placeholder="asd"
+              disabled />
+            <label for="dni" class="ms-2"
+              >DNI <span class="fs-7">(formato: XX.XXX.XXX)</span></label
+            >
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inquilino.Telefono"
+              class="form-control input-mid"
+              type="tel"
+              name="Telefono"
+              placeholder="asd"
+              disabled />
+            <label for="telefono" class="ms-2"
+              >Teléfono <span class="fs-7">(Formato +XX XXX-XXXXXXX)</span></label
+            >
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inquilino.Correo"
+              class="form-control input-bot"
+              type="email"
+              name="Correo"
+              placeholder="asd"
+              disabled />
+            <label for="correo" class="ms-2">Correo</label>
+          </div>
+
+          <h4 class="mt-3">Inmueble</h4>
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inmueble.Direccion"
+              class="form-control input-top"
+              type="text"
+              name="Direccion"
+              disabled />
+            <label for="direccion" class="ms-2">Dirección</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text-center">
+            <input
+              value="@Model.Contrato.Inmueble.Uso"
+              class="form-control input-mid"
+              type="text"
+              name="Uso"
+              disabled />
+            <label for="uso" class="ms-2">Uso</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inmueble.Tipo"
+              class="form-control input-mid"
+              type="text"
+              name="Tipo"
+              disabled />
+            <label for="tipo" class="ms-2">Tipo</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text-center">
+            <input
+              value="@Model.Contrato.Inmueble.CantAmbientes"
+              class="form-control input-mid"
+              type="number"
+              name="CantAmbientes"
+              disabled />
+            <label for="cantAmbientes" class="ms-2">Cantidad de Ambientes</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inmueble.Latitud"
+              class="form-control input-mid"
+              type="text"
+              name="Latitud"
+              step="any"
+              disabled />
+            <label for="latitud" class="ms-2">Latitud</label>
+          </div>
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              value="@Model.Contrato.Inmueble.Longitud"
+              class="form-control input-mid"
+              type="text"
+              name="Longitud"
+              step="any"
+              disabled />
+            <label for="longitud" class="ms-2">Longitud</label>
+          </div>
+
+          
+
+          <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              id="precio"
+              value="$ @Model.Contrato.Inmueble.Precio"
+              class="form-control input-mid"
+              type="text"
+              name="Precio"
+              step="any"
+              disabled />
+            <label for="precio" class="ms-2">Precio</label>
+          </div>
+
+            <div
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input
+              id="precio"
+              value="@Model.Contrato.Inmueble.Propietario.ToString()"
+              class="form-control input-bot"
+              type="text"
+              name="Precio"
+              step="any"
+              disabled />
+            <label for="precio" class="ms-2">Propietario</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <button
+        type="button"
+        class="btn btn-primary mx-auto"
+        style="width: fit-content"
+        onclick=" window.history.back()">
+        <i class="fa-solid fa-circle-left"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

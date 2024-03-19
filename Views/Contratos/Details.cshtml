@@ -1,0 +1,168 @@
+﻿@model Inmobiliaria.Models.Contrato
+
+@{
+  ViewData["Title"] = "Detalles Contrato";
+}
+
+<div class="text-center">
+  <div class="text-center">
+    <h1 class="display-4 mb-5">Detalles del Contrato</h1>
+    <div class="container mt-4">
+      <div class="card mx-auto col-md-8">
+        <div class="card-body">
+          <div class="form-group mt-3 d-flex justify-content-center gap-5">
+            <div>
+              <button id="Contrato" type="button"
+                class="btn btn-success d-flex justify-content-center align-items-center btn-lg"
+                style="width: fit-content;height: fit-content;" title="Renovar" data-bs-toggle="modal"
+                data-bs-target="#modalRenovarContrato">
+                <i class="fa-solid fa-file-circle-plus"></i>&nbsp;Renovar Contrato
+              </button>
+            </div>
+          </div>
+          <h3 class="mt-3">Datos del Contrato</h3>
+          <input value="@Model.Id" name="IdContratoV" type="hidden" />
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input value="@Model.FechaInicio.ToString("dd-MM-yyyy")" class="form-control input-top" type="text"
+              id="fechaInicioV" placeholder="asd" disabled>
+            <label for="fechaInicio" class="ms-2">Fecha de Inicio</label>
+          </div>
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text- *center">
+            <input value=@Model.FechaFin.ToString("dd-MM-yyyy") class="form-control input-mid" type="text"
+              id="fechaFinV" placeholder="asd" disabled>
+            <label for="fechaFin" class="ms-2">Fecha de Finalizacion</label>
+          </div>
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text- *center">
+            <input value="$@Model.MontoMensual" class="form-control input-mid" type="text" id="montoMensualV"
+              placeholder="asd" disabled>
+            <label for="montoMensual" class="ms-2">Monto Mensual</label>
+          </div>
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input value=@(Model.Estado==1 ? "Activo" : "Inactivo") class="form-control input-bot" type="text" id="estadoV"
+              placeholder="asd" disabled>
+            <label for="estado" class="ms-2">Estado</label>
+          </div>
+
+          <h3 class="mt-3">Datos del Inquilino</h3>
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input value="@Model.Inquilino.Apellido" class="form-control input-top" type="text" id="ApellidoV"
+              placeholder="asd" disabled />
+            <label for="apellido" class="ms-2">Apellido</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inquilino.Nombre" class="form-control input-mid" type="text" id="NombreV"
+              placeholder="asd" disabled />
+            <label for="nombre" class="ms-2">Nombre</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inquilino.Dni" class="form-control input-mid" type="text" id="DniV" placeholder="asd"
+              disabled />
+            <label for="dni" class="ms-2">DNI <span class="fs-7">(formato: XX.XXX.XXX)</span></label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inquilino.Telefono" class="form-control input-mid" type="tel" id="TelefonoV"
+              placeholder="asd" disabled />
+            <label for="telefono" class="ms-2">Teléfono <span class="fs-7">(Formato +XX XXX-XXXXXXX)</span></label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inquilino.Correo" class="form-control input-bot" type="email" id="CorreoV"
+              placeholder="asd" disabled />
+            <label for="correo" class="ms-2">Correo</label>
+          </div>
+          <input id="idInquilinoV" type="hidden" value=@Model.Inquilino.Id>
+
+          <h3 class="mt-3">Datos del Inmueble</h3>
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inmueble.Direccion" class="form-control input-top" type="text" id="DireccionV"
+              disabled />
+            <label for="direccion" class="ms-2">Dirección</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text-center">
+            <input value="@Model.Inmueble.Uso" class="form-control input-mid" type="text" id="UsoV" disabled />
+            <label for="uso" class="ms-2">Uso</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inmueble.Tipo" class="form-control input-mid" type="text" id="TipoV" disabled />
+            <label for="tipo" class="ms-2">Tipo</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto text-center">
+            <input value="@Model.Inmueble.CantAmbientes" class="form-control input-mid" type="number"
+              id="CantAmbientesV" disabled />
+            <label for="cantAmbientes" class="ms-2">Cantidad de Ambientes</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inmueble.Latitud" class="form-control input-mid" type="text" id="LatitudV" step="any"
+              disabled />
+            <label for="latitud" class="ms-2">Latitud</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inmueble.Longitud" class="form-control input-mid" type="text" id="LongitudV" step="any"
+              disabled />
+            <label for="longitud" class="ms-2">Longitud</label>
+          </div>
+
+
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="precio" value="$ @Model.Inmueble.Precio" class="form-control input-mid" type="text" id="PrecioV"
+              step="any" disabled />
+            <label for="precio" class="ms-2">Precio</label>
+          </div>
+
+          <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input value="@Model.Inmueble.Propietario.ToString()" class="form-control input-bot" type="text"
+              id="PropietarioV" step="any" disabled />
+            <label class="ms-2">Propietario</label>
+          </div>
+          <input id="idInmuebleV" type="hidden" value=@Model.Inmueble.Id>
+
+          <div class="modal fade" id="modalRenovarContrato">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title mx-auto" id="exampleModalLabel">Renovar Contrato</h5>
+
+                </div>
+                <div class="modal-body">
+                  <div id="modal-content">
+                    @Html.Partial("_Renovar", Model)
+
+                  </div>
+                </div>
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+   
+    
+    <div class="form-group mt-3">
+      <button type="button" class="btn btn-primary mx-auto" style="width: fit-content" onclick="window.history.back()">
+        <i class="fa-solid fa-circle-left"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+@* <script src="~/js/modalRenovarContrato.js" asp-append-version="true"></script> *@

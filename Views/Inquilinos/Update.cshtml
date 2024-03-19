@@ -1,0 +1,96 @@
+﻿@model Inmobiliaria.Models.Inquilino
+
+@{
+    ViewData["Title"] = "Modificar Inquilino";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Modificar Inquilino</h1>
+    <div class="container mt-4 ">
+        <form class="form form-floating d-flex flex-wrap flex-column gap-4" action="" method="post" data-bs-theme="dark"
+            onsubmit="return confirmarModificacion(event)">
+            <input id="apellido" value="@Model.Id" class="form-control" type="hidden" name="Id" placeholder="asd"
+                required>
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="apellido" value="@Model.Apellido" class="form-control" type="text" name="Apellido"
+                    placeholder="asd" required>
+                <label for="apellido" class="ms-2">Apellido</label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="nombre" value="@Model.Nombre" class="form-control" type="text" name="Nombre"
+                    placeholder="asd" required>
+                <label for="nombre" class="ms-2">Nombre</label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="dni" value="@Model.Dni" class="form-control" type="text" name="Dni" placeholder="asd"
+                    pattern="^\d{2}\.\d{3}\.\d{3}$" title="XX.XXX.XXX" required>
+                <label for="dni" class="ms-2 ">DNI <span class="fs-7">(formato: XX.XXX.XXX)</span></label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="telefono" value="@Model.Telefono" class="form-control" type="tel" name="Telefono"
+                    placeholder="asd" pattern="^\+\d{2} \d{2,3}-\d{6,7}$" title="+XX XXX-XXXXXXX" required>
+                <label for="telefono" class="ms-2 ">Teléfono <span class="fs-7">(Formato +XX XXX-XXXXXXX)</span></label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="correo" value="@Model.Correo" class="form-control" type="email" name="Correo"
+                    placeholder="asd" required>
+                <label for="correo" class="ms-2 ">Correo</label>
+            </div>
+            <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 text-center">
+                <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;"
+                    onclick="window.location.href = '/Inquilinos'"><i class="fa-solid fa-circle-left"></i></button>
+                <button type="submit" class="btn btn-success mx-auto my-auto" style="width: fit-content;"><i
+                        class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+
+
+
+
+
+
+
+    {
+
+
+
+
+
+
+
+        var alertMessage = TempData["AlertMessage"];
+
+
+
+
+
+
+
+        var alertType = TempData["AlertType"];
+        <text>
+                Swal.fire({
+                    icon: '@alertType',
+                title: '@alertMessage',
+                showConfirmButton: false,
+                timer: 2000 // Mostrar durante 2 segundos
+                          });
+        </text>
+    }
+</script>

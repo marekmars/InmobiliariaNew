@@ -1,0 +1,169 @@
+
+@{
+    ViewData["Title"] = "Registrar Contrato";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Registrar Contrato</h1>
+    <div class=" mt-4 ">
+      <form id="formContrato" class="form form-floating d-flex flex-wrap flex-column " method="post" data-bs-theme="dark" onsubmit="return confirmarCreacion(event)">
+        <div id="datosInquilino" class="">
+            <div class="d-flex flex-column flex-row-reverse justify-content-center align-items-center gap-2 col-12 pb-2 col-md-8 mx-auto">
+                <div class="flex mb-2">
+                    <button id="btnBuscarInquilino" type="button" class="btn btn-primary fa-solid fa-folder-tree btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusquedaInquilino"></button>
+                    <button id="Inquilino" type="button" class="btn btn-success btn-lg fa-solid fa-circle-plus"></button>
+                </div>
+                <div class="form-floating text-center flex-fill">
+                   <input id="busquedaDni" class="form-control" type="text" placeholder="Buscar por DNI" disabled required>
+                   <label class="">Ingrese un Inquilino</label>
+                </div>
+            </div>
+            
+
+           <div class="modal fade" id="modalBusquedaInquilino" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Inquilinos</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <input type="text" id="buscarModal" class="form-control mb-3" placeholder="Buscar por DNI, Nombre o Apellido">
+                            <div id="ajaxContentInquilino">
+                              
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalCrearInquilino">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title mx-auto" id="exampleModalLabel">Crear Inquilino</h5>
+                    </div>
+                    <div class="modal-body ">
+                      <div id="modal-content"></div>
+                    </div>
+                    <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+
+                  </div>
+                </div>
+
+            </div>
+              <div id="cardProp" class="card col-md-8 mt-4 mx-auto d-none">
+               <div class="card-header">
+                   Detalles del inquilino
+               </div>
+               <div class="card-body">
+                   <p class="card-text fw-bold">Nombre: <span class="fw-normal" id="inquilinoNombre"></span></p>
+                   <p class="card-text fw-bold">Apellido: <span class="fw-normal" id="inquilinoApellido"> </span></p>
+                   <p class="card-text fw-bold">Correo: <span class="fw-normal" id="inquilinoCorreo"></span></p>
+                   <p class="card-text fw-bold">Telefono: <span class="fw-normal" id="inquilinoTelefono"></span></p>         
+               </div>
+            </div>
+          <input id="idInquilino" class="form-control" type="hidden" name="IdInquilino" required>
+        
+         <div class="col-md-8 mt-4 mx-auto d-none" id="formDates">  
+             <div id="fechaInicioContainer"class="d-flex gap-5 pb-4 form-floating justify-content align-items-center mx-auto   text-center ">
+              <input id="fechaInicio"  class="form-control" type="date" name="FechaInicio" placeholder="sad" required onchange="document.getElementById('fechaFin').min = document.getElementById('fechaInicio').value">
+              <label for="FechaInicio" class="ms-2">Fecha de Inicio</label>
+             </div>
+     
+             <div id="fechaFinContainer" class="d-flex gap-5 pb-4 form-floating justify-content align-items-center mx-auto w-100  text-center ">
+                 <input id="fechaFin"  class="form-control" type="date" name="FechaFin" placeholder="sad" disabled required>
+                 <label for="FechaFin" class="ms-2">Fecha de Finalizacion</label>
+             </div>
+             <input id="estado" value=true class="form-control" type="hidden" name="Estado" placeholder="sad" required>    
+       
+        <div id="datosInmueble" class="mb-4 d-none " >    
+            <div class="d-flex gap-3 form-floating justify-content align-items-center mx-auto text-center">
+                <input id="busquedaId" disabled class="form-control" type="text" placeholder="sadas" required>
+                <button id="btnBuscarInmueble" type="button" class="btn btn-primary fa-solid fa-folder-tree btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusquedaInmueble"></button>
+
+                <label class="ms-2">Ingrese un Inmueble</label>
+            </div>
+
+            <div class="modal fade" id="modalBusquedaInmueble" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Inmuebles</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <input type="text" id="inputInmueble" class="form-control mb-3" placeholder="Buscar por direccion, tipo o propietario">
+                            <div id="ajaxContentInmueble">
+                              
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cardInmueble" class="card mx-auto mt-3 d-none">
+              <div class="card-header">
+                  Detalles del Inmueble
+              </div>
+              <div class="card-body">
+                  <p class="card-text fw-bold">Propietario: <span class="fw-normal" id="inmueblePropietario"></span></p>
+                  <p class="card-text fw-bold">Direccion: <span class="fw-normal" id="inmuebleDireccion"></span></p>
+                  <p class="card-text fw-bold">Uso: <span class="fw-normal" id="inmuebleUso"></span></p>
+                  <p class="card-text fw-bold">Tipo: <span class="fw-normal" id="inmuebleTipo"></span></p>
+                  <p class="card-text fw-bold">Cantidad de Ambientes: <span class="fw-normal" id="inmuebleCantAmbientes"></span></p>
+                  <p class="card-text fw-bold">Latitud: <span class="fw-normal" id="inmuebleLatitud"></span></p>
+                  <p class="card-text fw-bold">Longitud: <span class="fw-normal" id="inmuebleLongitud"></span></p>
+                  <p class="card-text fw-bold">Precio: <span class="fw-normal" id="inmueblePrecio"> </span></p>
+       
+              </div>
+            </div>
+            <input id="idInmueble" class="form-control" type="hidden" name="IdInmueble" required>
+        </div>
+
+        <div class="d-flex flex-column gap-3 d-none" id="formInputs">
+              <div id="montoMensualContainer" class="d-flex  gap-5 form-floating justify-content w-100 align-items-center mx-auto text-center">
+                 <input id="montoMensual" value=""  class="form-control" type="number" name="MontoMensual" required>
+                 <label for="MontoMensual" class="ms-2">Monto Mensual $</label>
+             </div>
+
+             <input id="estado" value=true class="form-control" type="hidden" name="Estado" placeholder="sad" required>
+                
+            
+        </div>
+        <div class="d-flex gap-5 pt-4 form-floating justify-content align-items-center mx-auto text-center ">
+             <button id=btnRegresar type="button" class="btn btn-primary mx-auto" style="width: fit-content;" onclick="window.location.href = '/Contratos'"><i class="fa-solid fa-circle-left"></i></button>
+             <button id="btnRegistrar" type="submit" class="btn btn-success mx-auto" style="width: fit-content;" disabled><i class="fa-solid fa-file-circle-plus"></i></button>
+        </div>                 
+      </form>
+    </div>
+</div>
+
+<script src="~/js/modalCrear.js" asp-append-version="true"></script>
+<script src="~/js/modalBuscarInmueble.js" asp-append-version="true"></script>
+<script src="~/js/modalBuscarInquilino.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+      {
+          var alertMessage = TempData["AlertMessage"];
+          var alertType = TempData["AlertType"];
+          <text>
+              Swal.fire({
+                  icon: '@alertType',
+                  title: '@alertMessage',
+                  showConfirmButton: false,
+                  timer: 2000 
+              });
+          </text>
+      }
+    </script>

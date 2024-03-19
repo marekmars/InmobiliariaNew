@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - Inmobiliaria</title>
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/sweetalert2.dark.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/Inmobiliaria.styles.css" asp-append-version="true" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+
+
+</head>
+
+<body class="text-success">
+  <header class="mb-5 px-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary  rounded  mx-auto mt-4" aria-label="Thirteenth navbar example">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+          aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-lg-flex p-0" id="navbarsExample11">
+          <a class="navbar-brand col-lg-3 me-0 p-0 my-1" href="/"><img src="~/content/logo.png" class="img-logo" alt=""
+              srcset=""></a>
+          <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" asp-controller="Home" asp-action="Index"><i
+                  class="fa-solid fa-house"></i> Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" asp-controller="Inquilinos" asp-action="Index"><i
+                  class="fa-solid fa-person"></i> Inquilinos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" asp-controller="Propietarios" asp-action="Index"><i
+                  class="fa-solid fa-person-shelter"></i> Propietarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" asp-controller="Inmuebles" asp-action="Index"><i
+                  class="fa-solid fa-building"></i> Inmuebles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" asp-controller="Contratos" asp-action="Index"><i
+                  class="fa-solid fa-file-signature"></i> Contratos</a>
+            </li>
+            @if (User.IsInRole("Administrador"))
+
+            {
+              <li class="nav-item">
+                <a class="nav-link " asp-controller="Usuarios" asp-action="Index"><i class="fa-solid fa-user-tie"></i>
+                  Usuarios</a>
+              </li>
+            }
+
+
+          </ul>
+          <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+            @if (User.Identity.IsAuthenticated)
+
+
+
+            {
+              <div class="dropdown d-flex ">
+                <a class="btn btn-outline-light dropdown-toggle my-auto" style="height:fit-content;" href="#"
+                  role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  @User.Identity.Name
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a asp-controller="Usuarios" asp-action="Perfil" class="dropdown-item text-light "
+                      aria-current="page">Perfil</a></li>
+                  <li><a class="dropdown-item " asp-controller="Usuarios" asp-action="Logout"><i
+                        class="fa-solid fa-right-to-bracket" style="transform: rotate(180deg);"></i> Logout </a> </li>
+                  @* <li><form asp-controller="Usuarios" asp-action="Logout">
+                <button class="dropdown-item"><i class="fa-solid fa-right-to-bracket" style="transform:
+                rotate(180deg);"></i> Logout </button>
+                </form>
+                </li> *@
+
+                </ul>
+              </div>
+
+            }
+
+            else
+
+            {
+              <a href="/Usuarios/Login" class="btn btn-outline-light"><i class="fa-solid fa-right-to-bracket"
+                  style=""></i> Login</a>
+
+            }
+
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <main role="main" class="pb-3">
+      @RenderBody()
+    </main>
+  </div>
+
+  <footer class="border-top footer text-muted">
+    <div class="container">
+      &copy; 2023 - Inmobiliaria - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a5eb905d06.js" crossorigin="anonymous"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  <script src="~/js/color-modes.js" asp-append-version="true"></script>
+  <script src="~/js/sweetalert2.all.min.js" asp-append-version="true"></script>
+  <script src="~/js/alertas.js" asp-append-version="true"></script>
+
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

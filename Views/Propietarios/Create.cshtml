@@ -1,0 +1,79 @@
+﻿@model List<Inmobiliaria.Models.Inquilino>
+
+@{
+    ViewData["Title"] = "Registrar Propietario";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Registrar Propietario</h1>
+    <div class="container mt-4 text-light">
+        <form id="formPropietario" class="form form-floating d-flex flex-wrap flex-column gap-4" method="post"
+            data-bs-theme="dark" onsubmit="return confirmarCreacion(event)">
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="apellido" class="form-control" type="text" name="apellido" placeholder="asd" required>
+                <label for="apellido" class="ms-2">Apellido</label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="nombre" class="form-control" type="text" name="nombre" placeholder="asd" required>
+                <label for="nombre" class="ms-2">Nombre</label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="dni" class="form-control" type="text" name="dni" placeholder="asd"
+                    pattern="^\d{2}\.\d{3}\.\d{3}$" title="XX.XXX.XXX" required>
+                <label for="dni" class="ms-2">DNI <span class="fs-7">(formato: XX.XXX.XXX)</span></label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="telefono" class="form-control" type="tel" name="telefono" placeholder="asd"
+                    pattern="^\+\d{2} \d{2,3}-\d{6,7}$" title="+XX XXX-XXXXXXX" required>
+                <label for="telefono" class="ms-2">Teléfono <span class="fs-7">(Formato +XX XXX-XXXXXXX)</span></label>
+            </div>
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <input id="correo" class="form-control" type="email" name="correo" placeholder="asd" required>
+                <label for="correo" class="ms-2">Correo</label>
+            </div>
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;"
+                    onclick="window.location.href = '/Propietarios'"><i class="fa-solid fa-circle-left"></i></button>
+                <button type="submit" class="btn btn-success mx-auto" style="width: fit-content;"><i
+                        class="fa-solid fa-user-plus"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+
+
+
+    {
+
+
+
+        var alertMessage = TempData["AlertMessage"];
+
+
+
+        var alertType = TempData["AlertType"];
+        <text>
+                Swal.fire({
+                    icon: '@alertType',
+                title: '@alertMessage',
+                showConfirmButton: false,
+                timer: 2000 // Mostrar durante 2 segundos
+                      });
+        </text>
+    }
+</script>

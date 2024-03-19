@@ -1,0 +1,96 @@
+﻿@model List<Inmobiliaria.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+    var uniqueParam = DateTime.UtcNow.Ticks;
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Usuarios</h1>
+  <div class="row d-flex justify-content-between">
+            <div class="col d-flex justify-content-start col-10">
+                <h5 class="position-relative">Detalle de los Usuarios</h5>
+            </div>
+            <div class="col d-flex col-2 justify-content-end">
+               <a asp-action="Create" asp-controller="Usuarios" class="btn btn-success "> <i class="fa-solid fa-circle-plus "></i></a>
+            </div>
+        </div>
+<div class="table-responsive">
+<table class="table table-striped table-dark table-hover table-auto">
+      
+        <thead>
+            <tr>           
+                <th></th>     
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            { 
+                
+                    <tr>
+                        <td class="td-user py-0 align-middle " >
+                            @if(usuario.Avatar!=""){
+                           
+                               <img src="@usuario.Avatar" alt="Avatar" class="border border-2 border border-light rounded-circle img-square" >
+                           
+                           }else{
+                              
+                               <img src="/Uploads/default.png" alt="Avatar" class="border border-2 border border-light  rounded-circle img-square">
+                                    
+                           }
+                        </td>
+                        <td class="align-middle td-user ">@usuario.Apellido</td>
+                        <td class="align-middle td-user">@usuario.Nombre</td>
+                        <td class="align-middle td-user">@usuario.Dni</td>
+                        <td class="align-middle td-user">@usuario.Telefono</td>
+                        <td class="align-middle td-user">@usuario.Correo</td>  
+                        <td class="align-middle td-user">@usuario.Rol</td>
+                        <td class="align-middle d-flex gap-2 justify-content-center align-items-center td-user">
+                          <form asp-action="Delete" asp-route-id="@usuario.Id" onsubmit="return confirmarEliminacion(event)">
+                              <button type="submit" class="btn btn-outline-danger w-75 h-100 d-flex justify-content-center align-items-center">
+                                  <i class="fa-solid fa-trash "></i>  
+                              </button>
+                          </form>
+                         <div >
+                           <a asp-action="Update" asp-controller="Usuarios" asp-route-id="@usuario.Id" class="btn btn-outline-primary w-75  d-flex justify-content-center align-items-center"> <i class="fa-solid fa-pen-to-square" style="cursor:pointer;"></i> </a>
+                         </div>
+                         <div >
+                           <a asp-action="Details" asp-controller="Usuarios" asp-route-id="@usuario.Id"  class="btn btn-outline-info w-75  d-flex justify-content-center align-items-center"> <i class="fa-solid fa-eye style="cursor:pointer;""></i> </a>
+                         </div>
+                        </td>
+                         
+
+
+                    </tr>
+            }
+        </tbody>
+    </table>
+        </div>
+    
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+      {
+          var alertMessage = TempData["AlertMessage"];
+          var alertType = TempData["AlertType"];
+          <text>
+              Swal.fire({
+                  icon: '@alertType',
+                  title: '@alertMessage',
+                  showConfirmButton: false,
+                  timer: 2000 // Mostrar durante 2 segundos
+              });
+          </text>
+      }
+    </script>
+

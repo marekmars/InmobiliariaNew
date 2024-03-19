@@ -1,0 +1,77 @@
+@model Inmobiliaria.Models.Contrato
+<form id="formContrato" asp-action="Create" asp-controller="Contratos"
+    class="form form-floating d-flex flex-wrap flex-column gap-4" method="post" data-bs-theme="dark"
+    onsubmit="return confirmarCreacion(event)">
+
+    <div id="datosInquilino" class="container">
+        <div id="cardProp" class="card col-md-8 mt-3 mx-auto ">
+            <div class="card-header">
+                Detalles del inquilino
+            </div>
+            <div class="card-body">
+                <p class="card-text fw-bold">Nombre: <span class="fw-normal" id="inquilinoNombre">@Model.Inquilino.Nombre</span></p>
+                <p class="card-text fw-bold">Apellido: <span class="fw-normal" id="inquilinoApellido">@Model.Inquilino.Apellido </span></p>
+                <p class="card-text fw-bold">Correo: <span class="fw-normal" id="inquilinoCorreo">@Model.Inquilino.Correo</span></p>
+                <p class="card-text fw-bold">Telefono: <span class="fw-normal" id="inquilinoTelefono">@Model.Inquilino.Telefono</span></p>
+            </div>
+        </div>
+        <input id="idInquilino" value=@Model.IdInquilino class="form-control" type="hidden" name="IdInquilino" required>
+    </div>
+   
+
+    <div id="datosInmueble" class="container ">
+        <div id="cardInmueble" class="card col-md-8 mx-auto  mt-3">
+            <div class="card-header">
+                Detalles del Inmueble
+            </div>
+            <div class="card-body">
+                <p class="card-text fw-bold">Propietario: <span class="fw-normal"
+                        id="inmueblePropietario">@Model.Inmueble.Propietario.ToString()</span></p>
+                <p class="card-text fw-bold">Direccion: <span class="fw-normal" id="inmuebleDireccion">@Model.Inmueble.Direccion</span></p>
+                <p class="card-text fw-bold">Uso: <span class="fw-normal" id="inmuebleUso">@Model.Inmueble.Uso.ToString()</span></p>
+                <p class="card-text fw-bold">Tipo: <span class="fw-normal" id="inmuebleTipo">@Model.Inmueble.Tipo.ToString()</span></p>
+                <p class="card-text fw-bold">Cantidad de Ambientes: <span class="fw-normal"
+                        id="inmuebleCantAmbientes">@Model.Inmueble.CantAmbientes</span></p>
+                <p class="card-text fw-bold">Latitud: <span class="fw-normal" id="inmuebleLatitud">@Model.Inmueble.Latitud</span></p>
+                <p class="card-text fw-bold">Longitud: <span class="fw-normal" id="inmuebleLongitud">@Model.Inmueble.Longitud</span></p>
+                <p class="card-text fw-bold">Precio: <span class="fw-normal" id="inmueblePrecio"> @Model.Inmueble.Precio</span></p>
+            </div>
+        </div>
+        <input id="idInmueble" value="@Model.IdInmueble" class="form-control" type="hidden" name="IdInmueble" required>
+    </div>
+     <div class="container d-flex flex-column gap-3" id="formDates">
+        <div id="fechaInicioContainer"
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 text-center ">
+            <input id="fechaInicio" class="form-control" type="date" name="FechaInicio" placeholder="sad"
+                min="@(@Model.FechaFin.AddDays(1).ToString("yyyy-MM-dd"))" required
+                onchange="document.getElementById('fechaFin').min = document.getElementById('fechaInicio').value">
+            <label for="FechaInicio" class="ms-2">Fecha de Inicio</label>
+        </div>
+
+        <div id="fechaFinContainer"
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 text-center ">
+            <input id="fechaFin" class="form-control" type="date" name="FechaFin" placeholder="sad" disabled required>
+            <label for="FechaFin" class="ms-2">Fecha de Finalizacion</label>
+        </div>
+        <input id="estado" value=true class="form-control" type="hidden" name="Estado" placeholder="sad" required>
+    </div>
+
+    <div class="container d-flex flex-column gap-3" id="formInputs">
+        <div id="montoMensualContainer"
+            class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 text-center">
+            <input id="montoMensual" value="" class="form-control" type="number" name="MontoMensual" required>
+            <label for="MontoMensual" class="ms-2">Monto Mensual $</label>
+        </div>
+
+        <input id="estado" value=true class="form-control" type="hidden" name="Estado" placeholder="sad" required>
+    </div>
+    <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 text-center ">
+
+        <button id="btnRegistrar" type="submit" class="btn btn-success mx-auto" style="width: fit-content;" disabled><i
+                class="fa-solid fa-file-circle-plus"></i></button>
+    </div>
+</form>
+
+
+
+<script src="~/js/modalRenovar.js" asp-append-version="true"></script>

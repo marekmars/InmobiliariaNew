@@ -1,0 +1,82 @@
+﻿@model Inmobiliaria.Models.Inmueble
+    
+@{
+    ViewData["Title"] = "Detalles Inmueble";
+}
+
+<div class="text-center ">
+    <h1 class="display-4 mb-5">Detalles del Inmueble</h1>
+    <div class="text-center ">
+       <div class="container mt-4">
+           <div class="card mx-auto col-md-8">
+               <div class="card-body">
+                   <h3>Datos del Inmueble</h3>
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="direccion" value="@Model.Direccion" class="form-control input-top" type="text" name="Direccion" disabled>
+            <label for="direccion" class="ms-2">Dirección</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="uso" value="@Model.Uso" class="form-control input-mid" type="text" name="Uso" disabled>
+            <label for="uso" class="ms-2">Uso</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="tipo" value="@Model.Tipo" class="form-control input-mid" type="text" name="Tipo" disabled>
+            <label for="tipo" class="ms-2">Tipo</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="cantAmbientes" value="@Model.CantAmbientes" class="form-control input-mid" type="number" name="CantAmbientes" disabled>
+            <label for="cantAmbientes" class="ms-2">Cantidad de Ambientes</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="latitud" value="@Model.Latitud" class="form-control input-mid" type="text" name="Latitud" step="any" disabled>
+            <label for="latitud" class="ms-2">Latitud</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="longitud" value="@Model.Longitud" class="form-control input-mid" type="text" name="Longitud" step="any" disabled>
+            <label for="longitud" class="ms-2">Longitud</label>
+        </div>
+        
+        <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+            <input id="precio" value="$ @Model.Precio" class="form-control input-bot" type="text" name="Precio" step="any" disabled>
+            <label for="precio" class="ms-2">Precio</label>
+        </div>
+        <h3 class="mt-3">Datos del Propietario</h3>
+         <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text- *center">
+            <input id="apellido" value="@Model.Propietario.Apellido" class="form-control  input-top" type="text" name="Apellido" placeholder="asd" disabled>
+            <label for="apellido" class="ms-2">Apellido</label>
+         </div>
+         
+         <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+             <input id="nombre" value="@Model.Propietario.Nombre" class="form-control  input-mid" type="text" name="Nombre" placeholder="asd" disabled>
+             <label for="nombre" class="ms-2">Nombre</label>
+         </div>
+         
+         <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+             <input id="dni" value="@Model.Propietario.Dni" class="form-control  input-mid" type="text" name="Dni" placeholder="asd" disabled>
+             <label for="dni" class="ms-2">DNI <span class="fs-7">(formato: XX.XXX.XXX)</span></label>
+         </div>
+         
+         <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+             <input id="telefono" value="@Model.Propietario.Telefono" class="form-control  input-mid" type="tel" name="Telefono" placeholder="asd" disabled>
+             <label for="telefono" class="ms-2">Teléfono <span class="fs-7">(Formato +XX XXX-XXXXXXX)</span></label>
+         </div>
+         
+         <div class="d-flex gap-5 form-floating justify-content align-items-center mx-auto  text-center">
+             <input id="correo" value="@Model.Propietario.Correo" class="form-control  input-bot" type="email" name="Correo" placeholder="asd" disabled>
+             <label for="correo" class="ms-2">Correo</label>
+         </div>
+                   
+               </div>
+           </div>
+       </div>
+    </div>
+   <div class="form-group mt-3">
+             <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;" onclick="window.history.back()"><i class="fa-solid fa-circle-left"></i></button>         
+   </div>
+
+

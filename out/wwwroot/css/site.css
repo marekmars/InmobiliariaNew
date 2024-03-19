@@ -1,0 +1,93 @@
+html {
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.img-logo {
+  height: 10vh;
+}
+.img-fondo {
+  width: 100%;
+}
+.fs-7 {
+  font-size: 0.8rem;
+}
+.table-auto td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-auto th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.input-top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.td {
+  min-width: fit-content !important; /* Ajusta el valor según tus necesidades */
+}
+.input-mid {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-bot {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.swal2-radio {
+  background-color: #19191a !important;
+  color: aliceblue !important;
+}
+.td-user {
+  height: 3rem;
+}
+.td-user-label {
+  height: 10rem;
+}
+.thumbnail-size {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.img-square {
+  width: 2.5rem; /* Ajusta el valor según tus necesidades */
+  height: 2.5rem; /* El mismo valor que el ancho para hacerla cuadrada */
+  object-fit: cover; /* Ajusta el comportamiento de relleno de la imagen */
+}
+.img-square-large {
+  width: 10rem; /* Ajusta el valor según tus necesidades */
+  height: 10rem; /* El mismo valor que el ancho para hacerla cuadrada */
+  object-fit: cover; /* Ajusta el comportamiento de relleno de la imagen */
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+.td-user {
+  height: 4rem;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

@@ -1,0 +1,219 @@
+﻿@model Inmobiliaria.Models.Inmueble
+
+@{
+    ViewData["Title"] = "Modificar Inmueble";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-5">Modificar Inmueble</h1>
+    <div class=" mt-4 ">
+        <form id="formInmueble" class="form form-floating d-flex flex-wrap flex-column gap-4" method="post"
+            data-bs-theme="dark" onsubmit="return confirmarModificacion(event)">
+            <div class="">
+                <div>
+
+                </div>
+                <div class="flex mb-2">
+                    
+                </div>
+                <div class="d-flex gap-2 form-floating justify-content align-items-center mx-auto col-md-8 text-center">
+                    <input id="busquedaDni" disabled value='@Model.Propietario.Dni' class="form-control" type="text"
+                        placeholder="Buscar por DNI" required>
+
+                    <label for="Propietario" class="">Buscar Propietario</label>
+
+                            <button id="btnBuscarModalTodos" type="button"
+                        class="btn btn-primary fa-solid fa-folder-tree btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#myModal"></button>
+                    <button id="redirCrear" type="button" class="btn btn-success btn-lg fa-solid fa-circle-plus"
+                        data-bs-toggle="modal" data-bs-target="#modalCrear"></button>
+                </div>
+
+                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Propietarios</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" id="buscarModal" class="form-control mb-3"
+                                    placeholder="Ingrese el término de búsqueda">
+                                <div id="ajaxContent">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalCrear">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mx-auto" id="exampleModalLabel">Crear Propietario</h5>
+                            </div>
+                            <div class="modal-body">
+
+                                <div id="modal-content"></div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div id="cardProp" class="card col-md-8 mt-3 mx-auto">
+                    <div class="card-header">
+                        Detalles del Propietario
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text fw-bold">Nombre:
+                            <span class="fw-normal" id="propietarioNombre">
+
+                                @Model.Propietario.Nombre
+
+                            </span>
+                        </p>
+                        <p class="card-text fw-bold">Apellido:
+                            <span class="fw-normal" id="propietarioApellido">
+
+                                @Model.Propietario.Apellido
+
+                            </span>
+                        </p>
+                        <p class="card-text fw-bold">Correo:
+                            <span class="fw-normal" id="propietarioCorreo">
+
+                                @Model.Propietario.Correo
+
+                            </span>
+                        </p>
+                        <p class="card-text fw-bold">Telefono:
+                            <span class="fw-normal" id="propietarioTelefono">
+
+                                @Model.Propietario.Telefono
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <input id="idPropietario" class="form-control" type="hidden" name="IdPropietario" required
+                    value="@Model.Propietario.Id">
+
+
+            </div>
+            <div id="formInputs" class="d-flex flex-column gap-4">
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <input id="direccion" value="@Model.Direccion" class="form-control" type="text" name="Direccion"
+                        placeholder="sad" required>
+                    <label for="direccion" class="ms-2">Dirección</label>
+                </div>
+
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <select id="uso" class="form-select" name="Uso" required>
+                        @foreach (var uso in ViewBag.enumUso)
+
+                        {
+                            <option value="@uso" selected="@(uso == Model.Uso.ToString())">@uso</option>
+                        }
+                    </select>
+                    <label for="uso" class="ms-2">Uso</label>
+                </div>
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <select id="tipo" class="form-select" name="Tipo" required>
+                        @foreach (var tipo in ViewBag.enumTipo)
+
+                        {
+                            <option value="@tipo" selected="@(tipo == Model.Tipo.ToString())">@tipo</option>
+                        }
+                    </select>
+                    <label for="tipo" class="ms-2">Tipo</label>
+                </div>
+
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <input id="cantAmbientes" value="@Model.CantAmbientes" class="form-control" type="number"
+                        name="CantAmbientes" placeholder="sad" required>
+                    <label for="cantAmbientes" class="ms-2">Cantidad de Ambientes</label>
+                </div>
+
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <input id="latitud" value="@Model.Latitud" class="form-control" type="text" name="Latitud"
+                        step="any" placeholder="sad" required>
+                    <label for="latitud" class="ms-2">Latitud</label>
+                </div>
+
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <input id="longitud" value="@Model.Longitud" class="form-control" type="text" name="Longitud"
+                        step="any" placeholder="sad" required>
+                    <label for="longitud" class="ms-2">Longitud</label>
+                </div>
+
+                <div
+                    class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+                    <input id="precio" value="@Model.Precio" class="form-control" type="number" name="Precio" step="any"
+                        placeholder="sad" required>
+                    <label for="precio" class="ms-2">Precio</label>
+                </div>
+            </div>
+
+
+
+            <div
+                class="d-flex gap-5 form-floating justify-content align-items-center mx-auto col-md-8 col-12 text-center">
+
+                <button type="button" class="btn btn-primary mx-auto" style="width: fit-content;"
+                    onclick="window.history.back()"><i class="fa-solid fa-circle-left"></i></button>
+                <button id="btnRegistrar" type="submit" class="btn btn-success mx-auto" style="width: fit-content;"><i
+                        class="fa-solid fa-building-circle-check"></i></button>
+            </div>
+            <input type="hidden" id="urlReferencia" name="urlReferencia" value="" />
+        </form>
+
+    </div>
+
+</div>
+<script src="~/js/modalBuscarPropietaro.js" asp-append-version="true"></script>
+<script src="~/js/modalCrear.js" asp-append-version="true"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+
+    {
+
+        var alertMessage = TempData["AlertMessage"];
+
+        var alertType = TempData["AlertType"];
+        <text>
+                Swal.fire({
+                    icon: '@alertType',
+                title: '@alertMessage',
+                showConfirmButton: false,
+                timer: 2000 // Mostrar durante 2 segundos
+                          });
+        </text>
+    }
+</script>
+<script>
+
+        document.getElementById("urlReferencia").value = document.referrer;
+</script>
