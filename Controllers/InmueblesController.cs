@@ -138,6 +138,8 @@ public class InmueblesController : Controller
         {
             InmueblesRepository repo = new();
             repo.DeleteInmueble(id);
+             TempData["AlertMessage"] = "Inmueble eliminado correctamente.";
+                TempData["AlertType"] = "success";
             return Redirect(relativePath);
         }
         catch (System.Exception)

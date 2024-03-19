@@ -437,6 +437,8 @@ public class UsuariosController : Controller
         {
             Console.WriteLine("Id: " + id);
             var res = _repo.DeleteUsuario(id);
+             TempData["AlertMessage"] = "Usuario eliminado correctamente.";
+                TempData["AlertType"] = "success";
             return RedirectToAction(nameof(Index));
         }
         catch

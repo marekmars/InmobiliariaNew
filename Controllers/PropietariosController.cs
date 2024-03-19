@@ -124,6 +124,8 @@ public class PropietariosController : Controller
             // }
 
             repo.DeletePropietario(id);
+             TempData["AlertMessage"] = "Propietario eliminado correctamente.";
+             TempData["AlertType"] = "success";
             return RedirectToAction("Index");
         }
         catch (System.Exception)

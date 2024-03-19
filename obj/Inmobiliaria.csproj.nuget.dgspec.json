@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Descargas\\inmobiliaria-mainwqeq (11)\\inmobiliaria-main\\Inmobiliaria.csproj": {}
+    "E:\\Documentos\\Proyectos\\inmobiliaria-main\\Inmobiliaria.csproj": {}
   },
   "projects": {
-    "E:\\Descargas\\inmobiliaria-mainwqeq (11)\\inmobiliaria-main\\Inmobiliaria.csproj": {
+    "E:\\Documentos\\Proyectos\\inmobiliaria-main\\Inmobiliaria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Descargas\\inmobiliaria-mainwqeq (11)\\inmobiliaria-main\\Inmobiliaria.csproj",
+        "projectUniqueName": "E:\\Documentos\\Proyectos\\inmobiliaria-main\\Inmobiliaria.csproj",
         "projectName": "Inmobiliaria",
-        "projectPath": "E:\\Descargas\\inmobiliaria-mainwqeq (11)\\inmobiliaria-main\\Inmobiliaria.csproj",
+        "projectPath": "E:\\Documentos\\Proyectos\\inmobiliaria-main\\Inmobiliaria.csproj",
         "packagesPath": "C:\\Users\\msamc\\.nuget\\packages\\",
-        "outputPath": "E:\\Descargas\\inmobiliaria-mainwqeq (11)\\inmobiliaria-main\\obj\\",
+        "outputPath": "E:\\Documentos\\Proyectos\\inmobiliaria-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\msamc\\AppData\\Roaming\\NuGet\\NuGet.Config",

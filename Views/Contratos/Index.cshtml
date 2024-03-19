@@ -82,6 +82,7 @@
                     <th>Monto Mensual</th>
                     <th>Fecha de Inicio</th>
                     <th>Fecha Fin</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -96,8 +97,8 @@
                             <td>$@Contrato.MontoMensual</td>
                             <td>@Contrato.FechaInicio.ToString("dd-MM-yyyy")</td>
                             <td>@Contrato.FechaFin.ToString("dd-MM-yyyy")</td>
-                            @* <td><i class="fa-solid fa-circle @(Contrato.Estado==true?"text-success":"text-danger")"></i></td>
-                    *@
+                            <td><i class="fa-solid fa-circle @(Contrato.Estado==1?"text-success":"text-danger")"></i></td>
+                   
                             <td class="d-flex gap-2 justify-content-center align-items-center">
                                 @if (User.IsInRole("Administrador"))
                                 {

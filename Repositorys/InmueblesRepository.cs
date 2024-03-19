@@ -223,32 +223,32 @@ AND NOT EXISTS (
                 command.Parameters.AddWithValue("@idPropietario", idPropietario);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        Propietario propietario = propietariosRepo.GetPropietarioById(reader.GetInt32("idPropietario"));
-                        uso = reader.GetString("uso");
-                        tipo = reader.GetString("tipo");
+              while (reader.Read())
+{
+    Propietario propietario = propietariosRepo.GetPropietarioById(reader.GetInt32("idPropietario"));
+    uso = reader.GetString("uso");
+    tipo = reader.GetString("tipo");
 
+    Inmueble inmueble = new()
+    {
+        Id = reader.GetInt32("id"),
+        Propietario = propietario,
+        IdPropietario = reader.GetInt32("idPropietario"),
+        Direccion = reader.GetString("direccion"),
+        CantAmbientes = reader.GetInt32("cantAmbientes"),
+        Latitud = reader.GetDouble("latitud"),
+        Longitud = reader.GetDouble("longitud"),
+        Precio = reader.GetDouble("precio"),
+        Estado = reader.GetByte("estado") == 1,
+        Disponible = reader.GetByte("disponible") == 1
+    };
 
-                        Inmueble inmueble = new()
-                        {
-                            Id = reader.GetInt32("id"),
-                            Propietario = propietario,
-                            IdPropietario = reader.GetInt32("idPropietario"),
-                            Direccion = reader.GetString("direccion"),
-                            CantAmbientes = reader.GetInt32("cantAmbientes"),
-                            Latitud = reader.GetDouble("latitud"),
-                            Longitud = reader.GetDouble("longitud"),
-                            Precio = reader.GetDouble("precio"),
-                           Estado = reader.GetByte("estado") == 1,
-                        Disponible = reader.GetByte("disponible") == 1
-                        };
+    inmueble.Tipo = (EnumTipo)Enum.Parse(typeof(EnumTipo), tipo);
+    inmueble.Uso = (EnumUso)Enum.Parse(typeof(EnumUso), uso);
 
-                        inmueble.Tipo = (EnumTipo)Enum.Parse(typeof(EnumTipo), tipo);
-                        inmueble.Uso = (EnumUso)Enum.Parse(typeof(EnumUso), uso);
+    inmuebles.Add(inmueble);
+}
 
-                        inmuebles.Add(inmueble);
-                    }
                     connection.Close();
                 }
             }

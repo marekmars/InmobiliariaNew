@@ -180,32 +180,40 @@ public class PropietariosRepository
     }
 
     public int DeletePropietario(int id)
+{
+    int rowsAffected = 0;
+    using (SqlConnection connection = new SqlConnection(connectionString))
     {
-        var res = -1;
-        using (SqlConnection connection = new SqlConnection(connectionString))
+       
+        string queryInmuebles = @"UPDATE inmuebles
+                                  SET estado = 0,
+                                      disponible = 0
+                                  WHERE idpropietario = @id";
+       
+        string queryPropietario = @"UPDATE propietarios
+                                    SET estado = 0
+                                    WHERE id = @id";
+
+        using (SqlCommand command = new SqlCommand())
         {
-            string query = @"UPDATE propietarios p
-                          LEFT JOIN inmuebles i ON p.id = i.idpropietario
-                          SET
-                              p.estado = 0,
-                              i.estado = 0,
-                              i.disponible = 0
-                          WHERE
-                              p.id = @id;";
-
-
-            using (SqlCommand command = new(query, connection))
-            {
-                connection.Open();
-                command.Parameters.AddWithValue("@id", id);
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-
+            command.Connection = connection;
+            connection.Open();
+            
+            // Actualizar propietarios
+            command.CommandText = queryPropietario;
+            command.Parameters.AddWithValue("@id", id);
+            rowsAffected += command.ExecuteNonQuery();
+            
+            // Actualizar inmuebles
+            command.CommandText = queryInmuebles;
+            rowsAffected += command.ExecuteNonQuery();
+            
+            connection.Close();
         }
-        return res;
-
     }
+    return rowsAffected; // Devuelve el número total de filas afectadas
+}
+
 
     public int UpdatePropietario(Propietario propietario)
     {
@@ -295,7 +303,7 @@ public class PropietariosRepository
                             Latitud = reader.GetDouble("latitud"),
                             Longitud = reader.GetDouble("longitud"),
                             Precio = reader.GetDouble("precio"),
-                            Estado = reader.GetBoolean("estado")
+                            Estado = reader.GetByte("estado") == 1
                         };
 
                         inmuebles.Add(inmueble);

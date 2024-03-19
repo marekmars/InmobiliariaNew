@@ -111,10 +111,13 @@ public class InquilinosController : Controller
 
             InquilinosRepository repo = new();
             repo.DeleteInquilino(id);
+            TempData["AlertMessage"] = "Inquilino eliminado correctamente.";
+                TempData["AlertType"] = "success";
             return RedirectToAction("Index");
         }
         catch (System.Exception)
         {
+            
             throw;
         }
     }

@@ -102,6 +102,8 @@ public class PagosController : Controller
             string returnUrl = Request.Headers["Referer"].ToString();
             Uri refererUri = new Uri(returnUrl);
             string relativePath = refererUri.GetComponents(UriComponents.PathAndQuery, UriFormat.SafeUnescaped);
+             TempData["AlertMessage"] = "Pago eliminado correctamente.";
+                TempData["AlertType"] = "success";
             return Redirect(relativePath);
         }
         catch (System.Exception)

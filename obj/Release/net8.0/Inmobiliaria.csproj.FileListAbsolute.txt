@@ -36,3 +36,42 @@ E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\obj\Release\net8.0\ref
 E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.pdb
 E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.genruntimeconfig.cache
 E:\Descargas\inmobiliaria-mainwqeq (11)\inmobiliaria-main\obj\Release\net8.0\ref\Inmobiliaria.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\appsettings.Development.json
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\appsettings.json
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.staticwebassets.runtime.json
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.exe
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.deps.json
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.runtimeconfig.json
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\Inmobiliaria.pdb
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\System.Data.SqlClient.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\runtimes\win-arm64\native\sni.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\runtimes\win-x64\native\sni.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\runtimes\win-x86\native\sni.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Documentos\Proyectos\inmobiliaria-main\bin\Release\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.csproj.AssemblyReference.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.AssemblyInfoInputs.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.AssemblyInfo.cs
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.csproj.CoreCompileInputs.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.MvcApplicationPartsAssemblyInfo.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.RazorAssemblyInfo.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.RazorAssemblyInfo.cs
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.sourcelink.json
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets.build.json
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets.development.json
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets\msbuild.Inmobiliaria.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets\msbuild.build.Inmobiliaria.props
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets\msbuild.buildMultiTargeting.Inmobiliaria.props
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets\msbuild.buildTransitive.Inmobiliaria.props
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\staticwebassets.pack.json
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\scopedcss\bundle\Inmobiliaria.styles.css
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\scopedcss\projectbundle\Inmobiliaria.bundle.scp.css
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.csproj.CopyComplete
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.dll
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\refint\Inmobiliaria.dll
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.pdb
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\Inmobiliaria.genruntimeconfig.cache
+E:\Documentos\Proyectos\inmobiliaria-main\obj\Release\net8.0\ref\Inmobiliaria.dll

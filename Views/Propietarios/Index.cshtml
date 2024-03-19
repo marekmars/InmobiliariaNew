@@ -70,21 +70,20 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
-        {
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
 
-            var alertMessage = TempData["AlertMessage"];
-
-            var alertType = TempData["AlertType"];
-            <text>
-                    Swal.fire({
-                        icon: '@alertType',
-                    title: '@alertMessage',
-                    showConfirmButton: false,
-                    timer: 2000 // Mostrar durante 2 segundos
-                  });
-            </text>
-        }
-    </script>
+    {
+        var alertMessage = TempData["AlertMessage"];
+        var alertType = TempData["AlertType"];
+        <text>
+                Swal.fire({
+                    icon: '@alertType',
+                title: '@alertMessage',
+                showConfirmButton: false,
+                timer: 2000 // Mostrar durante 2 segundos
+                                                                                                                                              });
+        </text>
+    }
+</script>
